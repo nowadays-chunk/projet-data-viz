@@ -1,0 +1,9 @@
+column,missing_count,total_count,missing_percent
+flight_id,0,270,0.0
+airport_code,0,270,0.0
+aircraft_id,0,270,0.0
+dep_airport,0,270,0.0
+arr_airport,0,270,0.0
+dep_date,0,270,0.0
+arr_date,0,270,0.0
+duration_hours,0,270,0.0

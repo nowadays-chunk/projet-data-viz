@@ -1,0 +1,23 @@
+filter,airport_code,flight_count
+Departure between 00:00 and 06:00 inclusive,ALL,63
+Departure between 00:00 and 06:00 inclusive,CDG,18
+Departure between 00:00 and 06:00 inclusive,DXB,9
+Departure between 00:00 and 06:00 inclusive,JFK,15
+Departure between 00:00 and 06:00 inclusive,LHR,12
+Departure between 00:00 and 06:00 inclusive,SIN,9
+January 1,ALL,1
+January 1,CDG,1
+November or December,ALL,41
+November or December,CDG,12
+November or December,DXB,5
+November or December,JFK,12
+November or December,LHR,9
+November or December,SIN,3
+Special days,ALL,1
+Special days,CDG,1
+Summer (July to September),ALL,70
+Summer (July to September),CDG,21
+Summer (July to September),DXB,13
+Summer (July to September),JFK,10
+Summer (July to September),LHR,11
+Summer (July to September),SIN,15

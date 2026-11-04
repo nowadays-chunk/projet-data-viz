@@ -1,0 +1,146 @@
+flight_id,airport_code,dep_airport,arr_airport,dep_date,matching_filters
+LHR-LHR-D03-041,LHR,LHR,AMS,2024-01-09 03:45:47,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B04-058,JFK,JFK,SIN,2024-02-20 05:50:32,Departure between 00:00 and 06:00 inclusive
+DXB-DXB-C03-005,DXB,DXB,BKK,2024-03-09 00:59:38,Departure between 00:00 and 06:00 inclusive
+DXB-DXB-C04-032,DXB,DXB,JFK,2024-03-23 03:32:32,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B04-008,JFK,JFK,CDG,2024-03-26 00:50:00,Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E04-017,SIN,SIN,JFK,2024-03-29 00:20:06,Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D01-025,LHR,LHR,DXB,2024-04-05 00:01:14,Departure between 00:00 and 06:00 inclusive
+DXB-DXB-C01-022,DXB,DXB,SIN,2024-04-10 01:05:40,Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E02-010,SIN,SIN,BKK,2024-05-05 02:09:41,Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E01-036,SIN,SIN,DXB,2024-06-20 00:10:47,Departure between 00:00 and 06:00 inclusive
+DXB-DXB-C02-036,DXB,DXB,CDG,2024-07-02 14:24:41,Summer (July to September)
+CDG-CDG-A03-006,CDG,CDG,LHR,2024-07-09 01:34:36,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D02-040,LHR,LHR,SIN,2024-07-23 18:12:00,Summer (July to September)
+DXB-DXB-C03-031,DXB,DXB,CDG,2024-07-25 11:02:51,Summer (July to September)
+LHR-LHR-D04-023,LHR,LHR,CDG,2024-07-26 06:47:31,Summer (July to September)
+LHR-LHR-D04-011,LHR,LHR,AMS,2024-07-31 05:12:16,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A01-021,CDG,CDG,JFK,2024-08-10 02:49:12,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E03-037,SIN,SIN,DXB,2024-08-14 19:43:06,Summer (July to September)
+DXB-DXB-C02-013,DXB,DXB,LHR,2024-08-25 08:54:31,Summer (July to September)
+JFK-JFK-B01-063,JFK,JFK,LHR,2024-08-30 19:42:26,Summer (July to September)
+DXB-DXB-C03-034,DXB,DXB,CDG,2024-08-30 21:37:30,Summer (July to September)
+SIN-SIN-E01-014,SIN,SIN,DXB,2024-08-31 14:42:06,Summer (July to September)
+CDG-CDG-A04-072,CDG,CDG,MAD,2024-08-31 19:55:52,Summer (July to September)
+DXB-DXB-C02-041,DXB,DXB,BKK,2024-09-02 21:38:40,Summer (July to September)
+CDG-CDG-A04-056,CDG,CDG,MAD,2024-09-05 02:31:44,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A01-038,CDG,CDG,DXB,2024-09-06 01:11:27,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+DXB-DXB-C03-003,DXB,DXB,SIN,2024-09-07 20:08:39,Summer (July to September)
+JFK-JFK-B01-057,JFK,JFK,CDG,2024-09-11 16:58:15,Summer (July to September)
+DXB-DXB-C02-019,DXB,DXB,CDG,2024-09-19 16:27:10,Summer (July to September)
+CDG-CDG-A02-052,CDG,CDG,JFK,2024-09-23 22:07:56,Summer (July to September)
+CDG-CDG-A04-025,CDG,CDG,LHR,2024-09-30 08:44:10,Summer (July to September)
+SIN-SIN-E01-023,SIN,SIN,LHR,2024-10-08 05:43:39,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B02-002,JFK,JFK,SIN,2024-11-01 16:58:52,November or December
+LHR-LHR-D02-004,LHR,LHR,DXB,2024-11-06 20:52:06,November or December
+DXB-DXB-C01-018,DXB,DXB,CDG,2024-11-07 21:37:30,November or December
+JFK-JFK-B04-037,JFK,JFK,CDG,2024-11-28 14:57:28,November or December
+LHR-LHR-D03-001,LHR,LHR,SIN,2024-11-28 19:04:28,November or December
+JFK-JFK-B02-029,JFK,JFK,CDG,2024-12-03 12:10:26,November or December
+JFK-JFK-B02-010,JFK,JFK,CDG,2024-12-04 04:17:20,November or December; Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D01-005,LHR,LHR,DXB,2024-12-11 12:18:25,November or December
+CDG-CDG-A04-026,CDG,CDG,JFK,2024-12-14 02:16:51,November or December; Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A03-030,CDG,CDG,LHR,2024-12-23 14:00:10,November or December
+JFK-JFK-B01-038,JFK,JFK,MIA,2024-12-23 21:55:36,November or December
+SIN-SIN-E03-027,SIN,SIN,LHR,2024-12-24 05:06:40,November or December; Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A04-013,CDG,CDG,DXB,2024-12-26 01:01:29,November or December; Departure between 00:00 and 06:00 inclusive
+DXB-DXB-C04-028,DXB,DXB,SIN,2024-12-26 22:34:30,November or December
+JFK-JFK-B02-018,JFK,JFK,SIN,2024-12-27 06:59:58,November or December
+CDG-CDG-A03-048,CDG,CDG,SIN,2025-01-01 22:57:08,January 1; Special days
+JFK-JFK-B03-009,JFK,JFK,DXB,2025-01-30 05:40:21,Departure between 00:00 and 06:00 inclusive
+DXB-DXB-C04-033,DXB,DXB,CDG,2025-03-31 04:59:45,Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D03-008,LHR,LHR,SIN,2025-04-22 05:02:19,Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E04-016,SIN,SIN,BKK,2025-05-18 01:38:59,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B03-013,JFK,JFK,CDG,2025-06-06 01:01:17,Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D04-032,LHR,LHR,CDG,2025-06-12 03:14:15,Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D04-042,LHR,LHR,DXB,2025-06-17 02:01:20,Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A03-073,CDG,CDG,SIN,2025-06-24 01:51:12,Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A03-031,CDG,CDG,MAD,2025-07-02 20:03:05,Summer (July to September)
+CDG-CDG-A02-004,CDG,CDG,DXB,2025-07-05 01:16:57,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A03-014,CDG,CDG,SIN,2025-07-11 00:16:09,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B04-001,JFK,JFK,SIN,2025-07-12 23:12:26,Summer (July to September)
+LHR-LHR-D03-022,LHR,LHR,AMS,2025-07-15 15:36:13,Summer (July to September)
+SIN-SIN-E02-039,SIN,SIN,CDG,2025-07-20 06:27:50,Summer (July to September)
+SIN-SIN-E03-022,SIN,SIN,CDG,2025-07-25 17:12:32,Summer (July to September)
+JFK-JFK-B01-036,JFK,JFK,SIN,2025-07-29 12:08:34,Summer (July to September)
+DXB-DXB-C04-035,DXB,DXB,CDG,2025-08-05 03:26:46,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E01-018,SIN,SIN,CDG,2025-08-05 11:10:16,Summer (July to September)
+JFK-JFK-B03-017,JFK,JFK,LHR,2025-08-06 07:48:51,Summer (July to September)
+LHR-LHR-D01-018,LHR,LHR,CDG,2025-08-07 05:48:34,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E01-008,SIN,SIN,CDG,2025-08-10 21:23:50,Summer (July to September)
+LHR-LHR-D03-020,LHR,LHR,CDG,2025-08-15 15:49:44,Summer (July to September)
+SIN-SIN-E01-001,SIN,SIN,CDG,2025-08-15 20:04:20,Summer (July to September)
+CDG-CDG-A02-041,CDG,CDG,MAD,2025-08-15 22:30:49,Summer (July to September)
+SIN-SIN-E03-028,SIN,SIN,DXB,2025-08-21 02:56:15,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E03-011,SIN,SIN,CDG,2025-08-24 23:42:42,Summer (July to September)
+SIN-SIN-E04-026,SIN,SIN,JFK,2025-08-26 10:20:08,Summer (July to September)
+CDG-CDG-A02-022,CDG,CDG,LHR,2025-08-31 08:13:47,Summer (July to September)
+JFK-JFK-B04-025,JFK,JFK,DXB,2025-09-16 13:21:17,Summer (July to September)
+CDG-CDG-A03-012,CDG,CDG,MAD,2025-09-20 10:06:44,Summer (July to September)
+CDG-CDG-A01-055,CDG,CDG,MAD,2025-09-22 06:53:52,Summer (July to September)
+JFK-JFK-B01-005,JFK,JFK,CDG,2025-09-23 05:04:50,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+DXB-DXB-C02-016,DXB,DXB,BKK,2025-10-07 02:10:13,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B02-022,JFK,JFK,CDG,2025-10-20 01:09:37,Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D01-024,LHR,LHR,CDG,2025-11-01 13:38:40,November or December
+JFK-JFK-B01-033,JFK,JFK,MIA,2025-11-02 13:28:27,November or December
+DXB-DXB-C04-039,DXB,DXB,SIN,2025-11-04 09:46:40,November or December
+JFK-JFK-B02-061,JFK,JFK,DXB,2025-11-10 02:35:14,November or December; Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E03-003,SIN,SIN,BKK,2025-11-17 10:26:40,November or December
+JFK-JFK-B02-042,JFK,JFK,MIA,2025-12-01 09:31:37,November or December
+CDG-CDG-A01-011,CDG,CDG,SIN,2025-12-15 11:11:58,November or December
+CDG-CDG-A02-043,CDG,CDG,LHR,2025-12-18 02:44:22,November or December; Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B04-006,JFK,JFK,DXB,2025-12-23 02:43:47,November or December; Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A02-061,CDG,CDG,JFK,2026-01-08 00:35:02,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B04-040,JFK,JFK,SIN,2026-02-01 00:32:39,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B03-024,JFK,JFK,SIN,2026-02-22 03:02:16,Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A04-023,CDG,CDG,MAD,2026-03-01 00:19:55,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B02-034,JFK,JFK,CDG,2026-03-20 00:12:07,Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E02-030,SIN,SIN,BKK,2026-03-28 05:44:06,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B01-035,JFK,JFK,MIA,2026-03-29 02:31:16,Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A01-074,CDG,CDG,JFK,2026-05-15 01:15:32,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B04-011,JFK,JFK,DXB,2026-06-12 01:30:00,Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A01-005,CDG,CDG,LHR,2026-06-17 02:36:35,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B04-003,JFK,JFK,DXB,2026-06-27 02:13:48,Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B01-049,JFK,JFK,MIA,2026-07-03 20:37:24,Summer (July to September)
+DXB-DXB-C04-020,DXB,DXB,JFK,2026-07-11 16:09:18,Summer (July to September)
+DXB-DXB-C04-043,DXB,DXB,LHR,2026-07-11 18:49:03,Summer (July to September)
+CDG-CDG-A01-057,CDG,CDG,DXB,2026-07-13 03:29:17,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A03-067,CDG,CDG,DXB,2026-07-14 16:19:38,Summer (July to September)
+SIN-SIN-E02-005,SIN,SIN,CDG,2026-07-17 17:18:34,Summer (July to September)
+SIN-SIN-E01-035,SIN,SIN,DXB,2026-07-31 12:22:03,Summer (July to September)
+LHR-LHR-D03-031,LHR,LHR,DXB,2026-08-03 05:10:48,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A02-058,CDG,CDG,MAD,2026-08-05 14:42:13,Summer (July to September)
+CDG-CDG-A02-047,CDG,CDG,SIN,2026-08-06 08:09:22,Summer (July to September)
+CDG-CDG-A04-040,CDG,CDG,MAD,2026-08-07 02:52:55,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E02-029,SIN,SIN,CDG,2026-08-12 02:39:05,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D02-016,LHR,LHR,DXB,2026-08-13 14:38:57,Summer (July to September)
+SIN-SIN-E02-021,SIN,SIN,CDG,2026-08-20 07:36:22,Summer (July to September)
+DXB-DXB-C01-017,DXB,DXB,BKK,2026-08-22 06:35:47,Summer (July to September)
+CDG-CDG-A04-049,CDG,CDG,JFK,2026-08-23 03:50:47,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B03-065,JFK,JFK,LHR,2026-08-24 07:50:52,Summer (July to September)
+LHR-LHR-D01-012,LHR,LHR,AMS,2026-08-27 04:42:51,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D04-028,LHR,LHR,JFK,2026-08-30 21:12:57,Summer (July to September)
+JFK-JFK-B02-045,JFK,JFK,CDG,2026-08-31 14:53:42,Summer (July to September)
+CDG-CDG-A01-024,CDG,CDG,LHR,2026-09-06 23:38:11,Summer (July to September)
+DXB-DXB-C02-011,DXB,DXB,JFK,2026-09-12 04:32:13,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D04-043,LHR,LHR,JFK,2026-09-13 05:24:12,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+SIN-SIN-E02-038,SIN,SIN,LHR,2026-09-28 23:00:03,Summer (July to September)
+DXB-DXB-C02-002,DXB,DXB,JFK,2026-09-30 04:41:59,Summer (July to September); Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D01-009,LHR,LHR,SIN,2026-10-24 01:36:13,Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A01-010,CDG,CDG,LHR,2026-11-03 18:15:52,November or December
+CDG-CDG-A02-035,CDG,CDG,LHR,2026-11-04 06:20:04,November or December
+LHR-LHR-D04-006,LHR,LHR,CDG,2026-11-10 13:14:56,November or December
+CDG-CDG-A02-015,CDG,CDG,DXB,2026-11-12 18:32:56,November or December
+CDG-CDG-A04-054,CDG,CDG,DXB,2026-11-14 12:07:02,November or December
+DXB-DXB-C04-010,DXB,DXB,CDG,2026-11-16 16:12:03,November or December
+LHR-LHR-D02-002,LHR,LHR,CDG,2026-11-17 19:56:13,November or December
+CDG-CDG-A02-019,CDG,CDG,DXB,2026-11-19 20:33:05,November or December
+LHR-LHR-D04-038,LHR,LHR,CDG,2026-11-28 01:13:40,November or December; Departure between 00:00 and 06:00 inclusive
+JFK-JFK-B01-019,JFK,JFK,CDG,2026-11-28 15:13:45,November or December
+CDG-CDG-A01-039,CDG,CDG,LHR,2026-12-10 03:38:39,November or December; Departure between 00:00 and 06:00 inclusive
+CDG-CDG-A04-001,CDG,CDG,SIN,2026-12-12 11:29:10,November or December
+SIN-SIN-E01-007,SIN,SIN,BKK,2026-12-17 22:12:07,November or December
+DXB-DXB-C03-029,DXB,DXB,SIN,2026-12-21 00:44:08,November or December; Departure between 00:00 and 06:00 inclusive
+LHR-LHR-D02-027,LHR,LHR,AMS,2026-12-27 15:13:53,November or December
+JFK-JFK-B04-053,JFK,JFK,DXB,2026-12-30 11:47:03,November or December
+LHR-LHR-D04-014,LHR,LHR,AMS,2026-12-31 12:03:47,November or December

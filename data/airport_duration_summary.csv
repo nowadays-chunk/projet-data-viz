@@ -1,0 +1,6 @@
+airport_code,flight_count,mean_duration_hours,median_duration_hours,min_duration_hours,max_duration_hours
+CDG,75,8.59,9.01,1.57,14.84
+DXB,44,8.82,8.07,1.81,14.92
+JFK,65,8.06,8.15,2.08,14.64
+LHR,46,9.39,9.93,1.85,14.88
+SIN,40,8.78,8.37,2.44,14.82
