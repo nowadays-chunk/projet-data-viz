@@ -1,3 +1,9 @@
+"""Analyse des retards et des performances de vols.
+
+Le script normalise les colonnes éventuelles de retard, calcule des métriques
+agrégées, classe les vols les plus impactés et exporte des CSV de synthèse.
+"""
+
 import csv
 from collections import defaultdict
 from datetime import datetime

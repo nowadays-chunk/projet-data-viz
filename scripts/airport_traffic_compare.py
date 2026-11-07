@@ -1,3 +1,10 @@
+"""Comparaison de la fréquentation par aéroport.
+
+Le script charge les données de vols de tous les aéroports, construit des
+chronologies de trafic avec leurs densités par date et par mois, puis génère
+un résumé de comptage dans data/ ainsi que les graphiques dans charts/airports/.
+"""
+
 import csv
 from collections import defaultdict
 from datetime import datetime

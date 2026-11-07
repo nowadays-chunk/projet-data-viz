@@ -1,6 +1,6 @@
--- Unified MySQL 8 schema and analyses for this project.
--- Run this file with the mysql CLI (source airport_analytics_mysql8.sql).
--- Existing flight rows are preserved. No tables or databases are dropped.
+-- Schéma et analyses MySQL 8 pour ce projet.
+-- Exécuter ce fichier avec le client mysql : SOURCE airport_analytics_mysql8.sql.
+-- Les lignes de vols existantes sont conservées. Aucune table ni base n'est supprimée.
 
 CREATE DATABASE IF NOT EXISTS       
     CHARACTER SET utf8mb4
@@ -8,8 +8,8 @@ CREATE DATABASE IF NOT EXISTS
 
 USE airport_analytics;
 
--- Each entity is defined once. The existing airport_analytics database already
--- has airports and flights; CREATE IF NOT EXISTS preserves those existing rows.
+-- Chaque entité est créée une seule fois. La base airport_analytics contient déjà
+-- des aéroports et des vols ; CREATE IF NOT EXISTS conserve les lignes existantes.
 CREATE TABLE IF NOT EXISTS airports (
     airport_code CHAR(3) NOT NULL,
     airport_name VARCHAR(120) NULL,
@@ -83,8 +83,9 @@ CREATE TABLE IF NOT EXISTS special_calendar_days (
     CONSTRAINT chk_special_day_day CHECK (day_number BETWEEN 1 AND 31)
 ) ENGINE = InnoDB;
 
--- Upgrade the already-populated airport_analytics tables without dropping data.
--- This helper adds a column only when absent, so the file is safe to rerun.
+-- Mise à jour des tables déjà peuplées sans supprimer les données.
+-- Cette procédure ajoute une colonne uniquement si elle est absente, ce qui rend
+-- le script sûr à relancer.
 DROP PROCEDURE IF EXISTS ensure_column;
 DELIMITER $$
 CREATE PROCEDURE ensure_column(
@@ -145,8 +146,9 @@ ALTER TABLE flights
     MODIFY COLUMN arrival_datetime DATETIME NULL,
     MODIFY COLUMN duration_hours DECIMAL(6, 2) NULL;
 
--- Coordinates for airports used by the generated flight data. Airport names
--- and coordinates are refreshed on rerun; flight rows are not changed here.
+-- Coordonnées des aéroports utilisés par les données générées. Les noms et
+-- coordonnées sont actualisés lors d'un relancement ; les lignes de vols ne sont
+-- pas modifiées ici.
 INSERT INTO airports
     (airport_code, airport_name, city, country, latitude, longitude)
 VALUES
@@ -183,7 +185,7 @@ VALUES
     (12, 25, 'Christmas Day')
 ON DUPLICATE KEY UPDATE day_name = VALUES(day_name);
 
--- Fill date and HHMM helper fields from actual datetimes where possible.
+-- Remplissage des champs de date et HHMM à partir des datetime réelles quand cela est possible.
 UPDATE flights
 SET flight_date = COALESCE(flight_date, DATE(departure_datetime)),
     dep_time = COALESCE(
@@ -197,7 +199,7 @@ SET flight_date = COALESCE(flight_date, DATE(departure_datetime)),
 WHERE departure_datetime IS NOT NULL OR arrival_datetime IS NOT NULL;
 
 -- ---------------------------------------------------------------------------
--- Shared derived views. Each view is defined once and is reused below.
+-- Vues dérivées partagées. Chaque vue est définie une fois puis réutilisée ci-dessous.
 -- ---------------------------------------------------------------------------
 
 CREATE OR REPLACE VIEW flight_time_metrics AS
@@ -321,9 +323,12 @@ WHERE arrival_airport_code IS NOT NULL
 GROUP BY arrival_airport_code;
 
 -- ---------------------------------------------------------------------------
--- A. Traffic date filters and daily departure counts
+-- A. Filtres temporels de trafic et comptages de départs journaliers
 -- ---------------------------------------------------------------------------
 
+-- Analyse du nombre de vols correspondant à chaque filtre de date pour chaque aéroport
+-- et au niveau global. Cette requête permet de comparer les périodes particulières
+-- selon les critères du projet (date fixe, saisons, jours spéciaux, départ tôt).
 SELECT
     df.filter_code,
     df.filter_name,
@@ -355,6 +360,7 @@ WHERE a.airport_code IN ('CDG', 'DXB', 'JFK', 'LHR', 'SIN')
 GROUP BY df.filter_code, df.filter_name, a.airport_code
 ORDER BY df.filter_code, a.airport_code;
 
+-- Résumé global des filtres de date sans ventilation par aéroport.
 SELECT
     df.filter_code,
     df.filter_name,
@@ -381,12 +387,14 @@ LEFT JOIN flight_metrics AS f
 GROUP BY df.filter_code, df.filter_name
 ORDER BY df.filter_code;
 
+-- Nombre de départs par date effective, utile pour tracer les pics de trafic.
 SELECT effective_flight_date AS departure_date, COUNT(*) AS flight_count
 FROM flight_metrics
 WHERE effective_flight_date IS NOT NULL
 GROUP BY effective_flight_date
 ORDER BY departure_date;
 
+-- Ventilation journalière du trafic par aéroport pour détecter les variations locales.
 SELECT effective_flight_date AS departure_date,
        airport_code,
        COUNT(*) AS flight_count
@@ -397,21 +405,26 @@ GROUP BY effective_flight_date, airport_code
 ORDER BY departure_date, airport_code;
 
 -- ---------------------------------------------------------------------------
--- B. Delay analysis, quality ranking and route-distance relationship
+-- B. Analyse des retards, classement et relation distance-route
 -- ---------------------------------------------------------------------------
 
+-- Vols les plus retardés à l'arrivée : synthèse de la qualité de service par trajet.
 SELECT flight_id, airline_code, arrival_airport_code, effective_arr_delay_minutes
 FROM flight_metrics
 WHERE effective_arr_delay_minutes IS NOT NULL
 ORDER BY effective_arr_delay_minutes DESC, flight_id
 LIMIT 20;
 
+-- Vols les plus retardés au départ, utile pour identifier les causes locales ou
+-- de planification.
 SELECT flight_id, airline_code, departure_airport_code, effective_dep_delay_minutes
 FROM flight_metrics
 WHERE effective_dep_delay_minutes IS NOT NULL
 ORDER BY effective_dep_delay_minutes DESC, flight_id
 LIMIT 20;
 
+-- Les vols cumulant un retard au départ et à l'arrivée sont classés par somme des
+-- retards afin d'identifier les incidents les plus coûteux.
 SELECT flight_id,
        airline_code,
        effective_dep_delay_minutes,
@@ -424,9 +437,12 @@ WHERE effective_dep_delay_minutes > 0
 ORDER BY combined_delay_minutes DESC, flight_id
 LIMIT 20;
 
+-- Retard moyen observé au départ sur l'ensemble du jeu de données.
 SELECT AVG(effective_dep_delay_minutes) AS mean_departure_delay_minutes
 FROM flight_metrics;
 
+-- Évolution du retard moyen au départ par date pour repérer les périodes de panne ou
+-- de congestion.
 SELECT effective_flight_date AS departure_date,
        COUNT(*) AS flight_count,
        AVG(effective_dep_delay_minutes) AS mean_departure_delay_minutes
@@ -516,6 +532,8 @@ SELECT *
 FROM destination_delay_distance
 ORDER BY destination;
 
+-- Statistiques par destination, hors HNL, pour comparer les distances moyennes et les
+-- retards moyens sur les itinéraires les plus courants.
 SELECT destination,
        flight_count,
        distinct_distance_count,
@@ -609,6 +627,7 @@ SELECT variable,
 FROM ranked_delay_values
 GROUP BY variable;
 
+-- Aéroport de départ offrant en moyenne le moindre retard à l'arrivée.
 SELECT departure_airport_code AS departure_airport,
        COUNT(*) AS flight_count,
        AVG(effective_arr_delay_minutes) AS mean_arr_delay_minutes
@@ -619,6 +638,8 @@ GROUP BY departure_airport_code
 ORDER BY mean_arr_delay_minutes ASC
 LIMIT 1;
 
+-- Retards moyens selon l'heure de départ pour mesurer l'impact de la congestion
+-- horaire sur les retards.
 SELECT HOUR(departure_datetime) AS departure_hour,
        COUNT(*) AS flight_count,
        AVG(effective_arr_delay_minutes) AS mean_arr_delay_minutes,
@@ -639,9 +660,11 @@ FROM flight_metrics
 WHERE departure_datetime IS NOT NULL;
 
 -- ---------------------------------------------------------------------------
--- C. Missing data and cancellation analysis
+-- C. Analyse des données manquantes et des annulations
 -- ---------------------------------------------------------------------------
 
+-- Évaluation du taux de valeurs absentes par colonne pour détecter les champs
+-- insuffisamment renseignés avant une analyse plus poussée.
 SELECT 'airport_code' AS column_name, COUNT(*) - COUNT(airport_code) AS missing_count,
        COUNT(*) AS row_count,
        100.0 * (COUNT(*) - COUNT(airport_code)) / NULLIF(COUNT(*), 0) AS missing_percent
@@ -686,12 +709,14 @@ UNION ALL
 SELECT 'distance_miles', COUNT(*) - COUNT(distance_miles), COUNT(*),
        100.0 * (COUNT(*) - COUNT(distance_miles)) / NULLIF(COUNT(*), 0) FROM flights;
 
--- Cancellation rule: both actual departure and actual arrival are missing.
+-- Règle d'annulation : départ et arrivée réels absents simultanément.
 SELECT COUNT(*) AS cancelled_flight_count
 FROM flight_metrics
 WHERE departure_time_missing = 1
   AND arrival_time_missing = 1;
 
+-- Répartition des annulations par destination pour identifier les routes les plus
+-- touchées.
 SELECT arrival_airport_code AS destination, COUNT(*) AS cancelled_flight_count
 FROM flight_metrics
 WHERE departure_time_missing = 1
@@ -699,6 +724,7 @@ WHERE departure_time_missing = 1
 GROUP BY arrival_airport_code
 ORDER BY cancelled_flight_count DESC, destination;
 
+-- Nombre d'annulations par compagnie aérienne.
 SELECT airline_code, COUNT(*) AS cancelled_flight_count
 FROM flight_metrics
 WHERE departure_time_missing = 1
@@ -752,9 +778,11 @@ ORDER BY (effective_dep_delay_minutes IS NOT NULL) ASC,
          flight_id;
 
 -- ---------------------------------------------------------------------------
--- D. Custom HHMM sorting, min_rank ties, and air-time comparison
+-- D. Tri personnalisé HHMM, classements et comparaison temps réel / temps de vol
 -- ---------------------------------------------------------------------------
 
+-- Conversion des horaires d'un format HHMM vers des minutes afin d'ordonner les vols
+-- selon le moment réel du départ.
 SELECT flight_id,
        dep_time_hhmm,
        dep_time_minutes,
@@ -771,6 +799,8 @@ SELECT flight_id,
        END AS reported_minus_calculated_delay_minutes
 FROM flight_metrics;
 
+-- Classement des 10 retards les plus importants, avec règle de rang proportionnelle
+-- aux égalités.
 WITH ranked_flights AS (
     SELECT flight_id,
            dep_time_hhmm,
@@ -785,6 +815,8 @@ FROM ranked_flights
 WHERE delay_rank <= 10
 ORDER BY delay_rank, flight_id;
 
+-- Comparaison entre durée totale mesurée par l'horloge et durée en air pour
+-- repérer d'éventuels écarts de taxi, de routage ou de temps d'attente.
 SELECT flight_id,
        dep_time_minutes,
        arr_time_minutes,
@@ -797,16 +829,19 @@ WHERE dep_time_minutes IS NOT NULL
   AND arr_time_minutes IS NOT NULL
   AND air_time_minutes IS NOT NULL;
 
--- Clock HHMM values do not encode time zones or dates. Use UTC timestamps for
--- real elapsed time; gate-to-gate elapsed time also includes taxiing unlike air time.
+-- Les valeurs HHMM n'encodent ni fuseau ni date. Pour un temps écoulé réel, il faut
+-- utiliser des timestamps UTC ; le temps entre portes inclut aussi le taxi, contrairement
+-- au temps de vol pur.
 
 -- ---------------------------------------------------------------------------
--- E. Geospatial routes and most frequent destinations
+-- E. Routes géospatiales et destinations les plus fréquentes
 -- ---------------------------------------------------------------------------
 
+-- Nombre de lignes de vols pour lesquelles les coordonnées des deux aéroports sont connues.
 SELECT COUNT(*) AS flights_with_both_airport_coordinates
 FROM flight_route_coordinates;
 
+-- Compte des routes et centrage géographique de chaque itinéraire avant visualisation.
 SELECT origin,
        destination,
        COUNT(*) AS flight_count,
@@ -819,6 +854,7 @@ GROUP BY origin, destination
 ORDER BY flight_count DESC, origin, destination
 LIMIT 100;
 
+-- Destinations les plus fréquentes pour mesurer la concentration du trafic.
 SELECT arrival_airport_code AS destination,
        COUNT(*) AS flight_count
 FROM flights

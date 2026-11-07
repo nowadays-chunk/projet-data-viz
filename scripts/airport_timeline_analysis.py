@@ -1,3 +1,10 @@
+"""Analyse chronologique globale des vols.
+
+Ce script lit les fichiers de chaque aéroport, ordonne les vols par date de
+voyage, puis produit un diagramme de suivi temporel et un histogramme de densité
+mensuelle pour l'ensemble du réseau.
+"""
+
 import csv
 from collections import defaultdict
 from datetime import datetime

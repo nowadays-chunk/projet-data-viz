@@ -1,3 +1,10 @@
+"""Analyse avancée du trafic par aéroport et par route.
+
+Ce script consolide les volumes mensuels, les distributions de durée de vol, les
+itinéraires les plus utilisés et l'utilisation des avions pour produire des
+fichiers de synthèse et des graphiques de comparaison.
+"""
+
 import csv
 from collections import Counter, defaultdict
 from datetime import datetime

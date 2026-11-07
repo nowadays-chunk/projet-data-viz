@@ -1,3 +1,11 @@
+"""Analyse des filtres temporels appliqués aux vols par aéroport.
+
+Ce script lit les fichiers CSV de départs dans data/airports, applique des
+règles métier de filtrage (1er janvier, mois de novembre/décembre, jours
+spéciaux, été et départ en heure creuse) puis exporte un résumé CSV ainsi que
+les graphiques correspondants dans data/date_filter_analysis/.
+"""
+
 import csv
 from collections import Counter
 from datetime import datetime, time

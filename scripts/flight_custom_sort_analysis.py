@@ -1,3 +1,10 @@
+"""Analyse des triages personnalisés et des retards de départ.
+
+Le script harmonise les valeurs HHMM, retrace les délais calculés à partir des
+heures de départ, puis classe les vols avec des ordres de tri spécifiques pour
+la comparaison des anomalies.
+"""
+
 import csv
 from pathlib import Path
 

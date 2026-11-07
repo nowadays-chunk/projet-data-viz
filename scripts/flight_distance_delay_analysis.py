@@ -1,3 +1,10 @@
+"""Étude de la relation entre distance, délais et vitesse de vol.
+
+Le script charge les données de vols enrichies, calcule les corrélations entre
+les variables de distance et de retard, puis exporte des statistiques par
+destination et des analyses descriptives.
+"""
+
 import csv
 import math
 from collections import defaultdict

@@ -1,3 +1,10 @@
+"""Détection des données manquantes et des vols annulés.
+
+Le script identifie les colonnes incomplètes, comptabilise les vols annulés selon
+les règles du projet, puis exporte des rapports CSV et des graphiques sur les
+annulations par destination, compagnie et période.
+"""
+
 import csv
 from collections import Counter
 from pathlib import Path

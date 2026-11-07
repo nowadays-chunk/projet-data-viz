@@ -1,3 +1,9 @@
+"""Cartographie des routes aériennes et des itinéraires domestiques.
+
+Le script charge les coordonnées GPS des aéroports, reconstruit les routes les
+plus fréquentes et produit une carte schématique des trajets aux États-Unis.
+"""
+
 import csv
 from collections import Counter
 from pathlib import Path

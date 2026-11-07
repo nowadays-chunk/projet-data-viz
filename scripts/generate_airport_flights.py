@@ -1,3 +1,10 @@
+"""Générateur de données de vols synthétiques.
+
+Le script produit des fichiers CSV de vols pour plusieurs aéroports, avec des
+horaires, durées, identifiants d'avion et routes simulées. Les fichiers ainsi
+créés servent ensuite aux analyses de trafic et de performance.
+"""
+
 import csv
 import random
 from datetime import datetime, timedelta
