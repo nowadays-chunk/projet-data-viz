@@ -1,6 +1,6 @@
 airport_code,city,aircraft_count,flight_rows
-CDG,Paris,4,75
-JFK,New York,4,65
-DXB,Dubai,4,44
-LHR,London,4,46
-SIN,Singapore,4,40
+CDG,Paris,4,45
+JFK,New York,4,62
+DXB,Dubai,4,59
+LHR,London,4,65
+SIN,Singapore,4,31
